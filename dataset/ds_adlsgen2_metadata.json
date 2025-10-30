@@ -1,0 +1,36 @@
+{
+	"name": "ds_adlsgen2_metadata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_ADLS_Gen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Metadata.json",
+				"fileSystem": "raw"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"TABLE_NAME": {
+					"type": "string"
+				},
+				"waterMark_column": {
+					"type": "string"
+				},
+				"MERGE_KEY": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

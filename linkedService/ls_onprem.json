@@ -1,0 +1,21 @@
+{
+	"name": "ls_onprem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-G3K4MOQ",
+			"database": "onprem",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "adf_onprem",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1MjNjNGU3My0wNDYwLTQxOWQtOWJiMS03NjM3MzBiNDk5YTIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "ir-onprem",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

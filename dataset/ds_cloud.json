@@ -1,0 +1,48 @@
+{
+	"name": "ds_cloud",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_cloud",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"ds_table_name": {
+				"type": "string",
+				"defaultValue": "test"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "category_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "category_name",
+				"type": "varchar"
+			},
+			{
+				"name": "created_at",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "updated_at",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().ds_table_name",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

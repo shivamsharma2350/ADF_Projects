@@ -1,0 +1,9 @@
+{
+	"name": "df-onprem-to-cloud",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5049c8da-7ad9-432d-88bb-c7a9ab301aaa",
+		"tenantId": "fa929702-e2ef-4ba7-8e7f-60b304a78c69"
+	}
+}
