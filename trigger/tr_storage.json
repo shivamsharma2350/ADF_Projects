@@ -1,0 +1,24 @@
+{
+	"name": "tr_storage",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_Storage_event",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/raw/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/860bd52f-88aa-465e-b5aa-a1f83feb6c07/resourceGroups/rg_adf/providers/Microsoft.Storage/storageAccounts/san1storage2025",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
