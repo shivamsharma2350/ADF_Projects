@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "df-onprem-to-cloud"
+		},
+		"ls_ADLS_Gen2_accountKey": {
+			"value": ""
+		},
+		"ls_cloud_password": {
+			"value": ""
+		},
+		"ls_onprem_password": {
+			"value": ""
+		},
+		"ls_ADLS_Gen2_properties_typeProperties_url": {
+			"value": "https://san1storage2025.dfs.core.windows.net/"
+		},
+		"ls_cloud_properties_typeProperties_server": {
+			"value": "sn-2cloud.database.windows.net"
+		},
+		"ls_cloud_properties_typeProperties_database": {
+			"value": "cloud_db"
+		},
+		"ls_cloud_properties_typeProperties_userName": {
+			"value": "dev123"
+		},
+		"ls_onprem_properties_typeProperties_server": {
+			"value": "DESKTOP-G3K4MOQ"
+		},
+		"ls_onprem_properties_typeProperties_database": {
+			"value": "onprem"
+		},
+		"ls_onprem_properties_typeProperties_userName": {
+			"value": "adf_onprem"
+		},
+		"tr_tumbling_window_properties_pipeline_parameters_WindowStart": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"tr_tumbling_window_properties_pipeline_parameters_WindowEnd": {
+			"value": "@trigger().outputs.windowEndTime"
+		}
+	}
+}
