@@ -1,0 +1,100 @@
+{
+	"name": "pl_sequential_error",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Var_1",
+					"value": "123"
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Var_2",
+					"value": 123
+				}
+			},
+			{
+				"name": "Set variable3",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Var_3",
+					"value": "yes"
+				}
+			},
+			{
+				"name": "Error",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable3",
+						"dependencyConditions": [
+							"Failed",
+							"Skipped"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Var_1",
+					"value": {
+						"value": "@concat(activity('Set variable1')?.Error?.Message,activity('Set variable2')?.Error?.Message,activity('Set variable3')?.Error?.Message)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"Var_1": {
+				"type": "String"
+			},
+			"Var_2": {
+				"type": "Integer"
+			},
+			"Var_3": {
+				"type": "Integer"
+			}
+		},
+		"annotations": []
+	}
+}
